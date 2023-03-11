@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "chat-style-QNA",
+  "description": "Adds chat-style-QNA section next to iCampus lectures.",
+  "version": "1.0",
+  "icons": {
+    "500": "images/icon-500.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "images/icon-500.png"
+  },    
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  "permissions": [
+    "activeTab", "tabs", "declarativeContent", "scripting"
+  ],
+  "content_scripts": [
+    {    
+        "js": ["scripts/content.js"],
+        "matches": [
+            "*://canvas.skku.edu/courses/*"
+        ]
+    }
+  ]
+}
